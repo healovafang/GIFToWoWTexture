@@ -1,0 +1,11 @@
+C:\Users\EthanW\Desktop\Coding\GIFToWoWTexture\GIFToWoWTextureApp\bin\Debug\netcoreapp3.1\GIFToWoWTextureApp.exe
+C:\Users\EthanW\Desktop\Coding\GIFToWoWTexture\GIFToWoWTextureApp\bin\Debug\netcoreapp3.1\GIFToWoWTextureApp.deps.json
+C:\Users\EthanW\Desktop\Coding\GIFToWoWTexture\GIFToWoWTextureApp\bin\Debug\netcoreapp3.1\GIFToWoWTextureApp.runtimeconfig.json
+C:\Users\EthanW\Desktop\Coding\GIFToWoWTexture\GIFToWoWTextureApp\bin\Debug\netcoreapp3.1\GIFToWoWTextureApp.runtimeconfig.dev.json
+C:\Users\EthanW\Desktop\Coding\GIFToWoWTexture\GIFToWoWTextureApp\bin\Debug\netcoreapp3.1\GIFToWoWTextureApp.dll
+C:\Users\EthanW\Desktop\Coding\GIFToWoWTexture\GIFToWoWTextureApp\bin\Debug\netcoreapp3.1\GIFToWoWTextureApp.pdb
+C:\Users\EthanW\Desktop\Coding\GIFToWoWTexture\GIFToWoWTextureApp\obj\Debug\netcoreapp3.1\GIFToWoWTextureApp.csprojAssemblyReference.cache
+C:\Users\EthanW\Desktop\Coding\GIFToWoWTexture\GIFToWoWTextureApp\obj\Debug\netcoreapp3.1\GIFToWoWTextureApp.AssemblyInfoInputs.cache
+C:\Users\EthanW\Desktop\Coding\GIFToWoWTexture\GIFToWoWTextureApp\obj\Debug\netcoreapp3.1\GIFToWoWTextureApp.AssemblyInfo.cs
+C:\Users\EthanW\Desktop\Coding\GIFToWoWTexture\GIFToWoWTextureApp\obj\Debug\netcoreapp3.1\GIFToWoWTextureApp.dll
+C:\Users\EthanW\Desktop\Coding\GIFToWoWTexture\GIFToWoWTextureApp\obj\Debug\netcoreapp3.1\GIFToWoWTextureApp.pdb
