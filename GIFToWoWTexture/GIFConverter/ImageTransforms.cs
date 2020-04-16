@@ -13,14 +13,12 @@ namespace GIFConverter
         public static Image ImagesToGIF(IEnumerable<Image> images)
         {
             MemoryStream memoryStream = new MemoryStream();
-            using (GifWriter gifWriter = new GifWriter(memoryStream))
+            GifWriter gifWriter = new GifWriter(memoryStream);
+            foreach (Image image in images)
             {
-                foreach (Image image in images)
-                {
-                    gifWriter.WriteFrame(image);
-                }
-                return Image.FromStream(memoryStream);
+                gifWriter.WriteFrame(image);
             }
+            return Image.FromStream(memoryStream);
         }
 
         public static Image Crop(Image image, Rectangle cropArea)
