@@ -1,0 +1,10 @@
+C:\Users\EthanW\Desktop\Coding\WoWStuff\GIFToWoWTexture\GIFConverter\bin\Debug\GIFConverter.exe.config
+C:\Users\EthanW\Desktop\Coding\WoWStuff\GIFToWoWTexture\GIFConverter\bin\Debug\GIFConverter.exe
+C:\Users\EthanW\Desktop\Coding\WoWStuff\GIFToWoWTexture\GIFConverter\bin\Debug\GIFConverter.pdb
+C:\Users\EthanW\Desktop\Coding\WoWStuff\GIFToWoWTexture\GIFConverter\obj\Debug\GIFConverter.csprojAssemblyReference.cache
+C:\Users\EthanW\Desktop\Coding\WoWStuff\GIFToWoWTexture\GIFConverter\obj\Debug\GIFConverter.GIFConverterForm.resources
+C:\Users\EthanW\Desktop\Coding\WoWStuff\GIFToWoWTexture\GIFConverter\obj\Debug\GIFConverter.Properties.Resources.resources
+C:\Users\EthanW\Desktop\Coding\WoWStuff\GIFToWoWTexture\GIFConverter\obj\Debug\GIFConverter.csproj.GenerateResource.cache
+C:\Users\EthanW\Desktop\Coding\WoWStuff\GIFToWoWTexture\GIFConverter\obj\Debug\GIFConverter.exe
+C:\Users\EthanW\Desktop\Coding\WoWStuff\GIFToWoWTexture\GIFConverter\obj\Debug\GIFConverter.pdb
+C:\Users\EthanW\Desktop\Coding\WoWStuff\GIFToWoWTexture\GIFConverter\obj\Debug\GIFConverter.CropForm.resources

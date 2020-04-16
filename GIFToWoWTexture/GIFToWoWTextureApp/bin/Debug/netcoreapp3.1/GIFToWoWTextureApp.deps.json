@@ -7,8 +7,19 @@
   "targets": {
     ".NETCoreApp,Version=v3.1": {
       "GIFToWoWTextureApp/1.0.0": {
+        "dependencies": {
+          "ImageProcessor": "2.8.0"
+        },
         "runtime": {
           "GIFToWoWTextureApp.dll": {}
+        }
+      },
+      "ImageProcessor/2.8.0": {
+        "runtime": {
+          "lib/net452/ImageProcessor.dll": {
+            "assemblyVersion": "2.8.0.152",
+            "fileVersion": "2.8.0.152"
+          }
         }
       }
     }
@@ -18,6 +29,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "ImageProcessor/2.8.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-P2r2vHjuWL9IVTLyaF2CmieWsd9Cg4bYlzzV4FkAqvs7hAFnzBUJ9Tkp04dgx0hs1xDdSTjxhWgZgUEB7G6NOg==",
+      "path": "imageprocessor/2.8.0",
+      "hashPath": "imageprocessor.2.8.0.nupkg.sha512"
     }
   }
 }
