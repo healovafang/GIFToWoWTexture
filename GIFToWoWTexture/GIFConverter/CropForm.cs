@@ -14,7 +14,7 @@ namespace GIFConverter
     public partial class CropForm : Form
     {
         bool isMouseDown = false;
-        Rectangle cropArea = new Rectangle(0, 0, 200, 200);
+        public Rectangle CropArea = new Rectangle(0, 0, 200, 200);
         Point LastMousePosition;
         public CropForm(Image image)
         {
@@ -26,47 +26,66 @@ namespace GIFConverter
             CropPictureBox.MouseDown += CropPictureBox_MouseDown;
             CropPictureBox.MouseMove += CropPictureBox_MouseMove;
             CropPictureBox.MouseUp += CropPictureBox_MouseUp;
-
+            
             Refresh();
         }
         private void CropPictureBox_Paint(object sender, PaintEventArgs e)
         {
-            e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(120,220,220,220)), cropArea);
+            e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(120,220,220,220)), CropArea);
         }
 
         private void CropPictureBox_MouseDown(object sender, MouseEventArgs e)
         {
-            if(MouseIsOver(CropPictureBox, e.Location))
+            if(MouseIsOver(CropArea, e.Location))
             {
                 isMouseDown = true;
                 LastMousePosition = e.Location;
             }
         }
 
+        private bool MouseIsOver(Rectangle cropArea, Point mouseLocation)
+        {
+            return mouseLocation.X >= cropArea.Location.X &&
+                    mouseLocation.X <= (cropArea.Location.X + cropArea.Size.Width) &&
+                    mouseLocation.Y >= cropArea.Location.Y &&
+                    mouseLocation.Y <= (cropArea.Location.Y + cropArea.Size.Height);
+        }
+
         private void CropPictureBox_MouseMove(object sender, MouseEventArgs e)
         {
             if (isMouseDown == true)
             {
-                cropArea.Location = GetDelta(LastMousePosition, e.Location);
+                CropArea.Location = AddDelta(GetVector(LastMousePosition, e.Location), CropArea.Location);
+                LastMousePosition = e.Location;
 
-                if (cropArea.Right > CropPictureBox.Width)
+                if (CropArea.Right > CropPictureBox.Image.Width)
                 {
-                    cropArea.X = CropPictureBox.Width - cropArea.Width;
+                    CropArea.X = CropPictureBox.Image.Width - CropArea.Width;
                 }
-                if (cropArea.Top < 0)
+                if (CropArea.Top < 0)
                 {
-                    cropArea.Y = 0;
+                    CropArea.Y = 0;
                 }
-                if (cropArea.Left < 0)
+                if (CropArea.Left < 0)
                 {
-                    cropArea.X = 0;
+                    CropArea.X = 0;
                 }
-                if (cropArea.Bottom > CropPictureBox.Height)
+                if (CropArea.Bottom > CropPictureBox.Image.Height)
                 {
-                    cropArea.Y = CropPictureBox.Height - cropArea.Height;
+                    CropArea.Y = CropPictureBox.Image.Height - CropArea.Height;
                 }
                 Refresh();
             }
+        }
+
+        private Point GetVector(Point lastMousePosition, Point currentMousePosition)
+        {
+            return new Point(currentMousePosition.X - lastMousePosition.X, currentMousePosition.Y - lastMousePosition.Y);
+        }
+
+        private Point AddDelta(Point vector, Point currentlocation)
+        {
+            return new Point(currentlocation.X + vector.X, currentlocation.Y + vector.Y);
         }
 
         private void CropPictureBox_MouseUp(object sender, MouseEventArgs e)
@@ -77,6 +96,32 @@ namespace GIFConverter
         private void cropButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void maxSizeButton_Click(object sender, EventArgs e)
+        {
+            int smallestImageDimension = CropPictureBox.Image.Width > CropPictureBox.Image.Height ?
+                                                    CropPictureBox.Image.Height : CropPictureBox.Image.Width;
+            CropArea = new Rectangle(0, 0, smallestImageDimension, smallestImageDimension);
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            int smallestImageDimension = CropPictureBox.Image.Width > CropPictureBox.Image.Height ?
+                                                    CropPictureBox.Image.Height : CropPictureBox.Image.Width;
+
+            if(int.TryParse(textBox1.Text, out int inputValue))
+            {
+                if(inputValue > smallestImageDimension)
+                {
+                    textBox1.Text = smallestImageDimension.ToString();
+                }
+                else
+                {
+                    CropArea = new Rectangle(0, 0, inputValue, inputValue);
+                }
+                Refresh();
+            }
         }
     }
 }

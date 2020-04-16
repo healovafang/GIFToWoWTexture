@@ -4,11 +4,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.IO;
 
 namespace GIFConverter
 {
     public static class ImageTransforms
     {
+        public static Image ImagesToGIF(IEnumerable<Image> images)
+        {
+            MemoryStream memoryStream = new MemoryStream();
+            using (GifWriter gifWriter = new GifWriter(memoryStream))
+            {
+                foreach (Image image in images)
+                {
+                    gifWriter.WriteFrame(image, 500);
+                }
+                return Image.FromStream(memoryStream);
+            }
+        }
+
         public static Image Crop(Image image, Rectangle cropArea)
         {
             var currentTile = new Bitmap(cropArea.Width, cropArea.Height);

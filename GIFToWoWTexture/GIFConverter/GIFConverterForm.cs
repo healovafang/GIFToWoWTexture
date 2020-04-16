@@ -84,8 +84,20 @@ namespace GIFConverter
 
         private void button1_Click(object sender, EventArgs e)
         {
-            CropForm newcrop = new CropForm(CurrentFrame);
-            newcrop.ShowDialog();
+            if(CurrentEdit is null) { return; }
+            using (CropForm newcrop = new CropForm(CurrentFrame))
+            {
+                newcrop.ShowDialog();
+
+                var CropArea = newcrop.CropArea;
+                List<Image> images = CurrentEdit.GIFFrames
+                    .Select(o => ImageTransforms.Crop(o, CropArea)).ToList();
+
+                GIFEdit edit = new GIFEdit(ImageTransforms.ImagesToGIF(images), CurrentEdit.Name);
+                GIFEdits.Add(edit);
+                UpdateCurrentEditViews(edit);
+            }
+                
         }
     }
 }
