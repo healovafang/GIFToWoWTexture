@@ -17,7 +17,7 @@ namespace GIFConverter
             {
                 foreach (Image image in images)
                 {
-                    gifWriter.WriteFrame(image, 500);
+                    gifWriter.WriteFrame(image);
                 }
                 return Image.FromStream(memoryStream);
             }
