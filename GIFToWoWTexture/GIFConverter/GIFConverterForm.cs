@@ -90,6 +90,11 @@ namespace GIFConverter
             bestSize = GetBestSize(aspectRatio, height, bestSize, ceilWidth, floorHeight);
             bestSize = GetBestSize(aspectRatio, height, bestSize, floorWidth, ceilHeight);
             bestSize = GetBestSize(aspectRatio, height, bestSize, floorWidth, floorHeight);
+
+            while(bestSize.Height >= 16384 || bestSize.Width >= 16384)
+            {
+                bestSize = new Size(bestSize.Width / 2, bestSize.Height / 2);
+            }
             return bestSize;
         }
 
@@ -160,7 +165,6 @@ namespace GIFConverter
                 //GIFEdits.Add(CurrentEdit);
                 UpdateCurrentEditViews(CurrentEdit);
             }
-                
         }
 
         private void removeFramesFromStartButton_Click(object sender, EventArgs e)
