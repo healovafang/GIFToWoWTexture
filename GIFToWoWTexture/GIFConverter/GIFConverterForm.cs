@@ -34,18 +34,17 @@ namespace GIFConverter
         private void GIFPositionScrollBar_ValueChanged(object sender, EventArgs e)
         {
             GIFPictureBox.Image = CurrentFrame;
-            currentFrameLabel.Text = "Current Frame: " + CurrentFramePosition.ToString();
+            currentFrameLabel.Text = "Current Frame: " + (CurrentFramePosition + 1).ToString();
         }
 
         private void LoadGIFButton_Click(object sender, EventArgs e)
         {
-            ClearEdits();
-
             var file = new OpenFileDialog();
             file.Filter = "GIF Files (*.gif)|*.gif";
 
             if(file.ShowDialog() == DialogResult.OK)
             {
+                ClearEdits();
                 CurrentEdit = new GIFEdit(file.FileName);
                 UpdateCurrentEditViews(CurrentEdit);
             }
