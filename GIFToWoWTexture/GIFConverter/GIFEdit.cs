@@ -13,7 +13,7 @@ namespace GIFConverter
         : IDisposable
     {
         public Image OriginalGIFImage { get; }
-        public List<Image> GIFFrames { get; }
+        public List<Image> GIFFrames { get; set; }
         public int FrameCount => GIFFrames.Count;
         public int Width => OriginalGIFImage.Width;
         public int Height => OriginalGIFImage.Height;

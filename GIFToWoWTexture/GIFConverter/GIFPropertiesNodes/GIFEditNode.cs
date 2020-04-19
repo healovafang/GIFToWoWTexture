@@ -12,8 +12,8 @@ namespace GIFConverter.GIFPropertiesNodes
         : TreeNode
     {
         public GIFEdit GIFEdit { get; }
-        public GIFEditNode(GIFEdit gifEdit, int editCount)
-            : base(gifEdit.Name + " Edit " + editCount.ToString())
+        public GIFEditNode(GIFEdit gifEdit)
+            : base(gifEdit.Name)
         {
             GIFEdit = gifEdit;
             FillPropertyNodes();

@@ -30,11 +30,11 @@
         {
             this.CropPictureBox = new System.Windows.Forms.PictureBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.CropAreaSizeGroupBox = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.maxSizeButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.cropButton = new System.Windows.Forms.Button();
-            this.CropAreaSizeGroupBox = new System.Windows.Forms.GroupBox();
-            this.maxSizeButton = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.CropPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -45,6 +45,7 @@
             // 
             // CropPictureBox
             // 
+            this.CropPictureBox.BackColor = System.Drawing.Color.Transparent;
             this.CropPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CropPictureBox.Location = new System.Drawing.Point(0, 0);
             this.CropPictureBox.Name = "CropPictureBox";
@@ -72,6 +73,38 @@
             this.splitContainer1.SplitterDistance = 391;
             this.splitContainer1.TabIndex = 1;
             // 
+            // CropAreaSizeGroupBox
+            // 
+            this.CropAreaSizeGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.CropAreaSizeGroupBox.Controls.Add(this.textBox1);
+            this.CropAreaSizeGroupBox.Controls.Add(this.maxSizeButton);
+            this.CropAreaSizeGroupBox.Location = new System.Drawing.Point(504, 3);
+            this.CropAreaSizeGroupBox.Name = "CropAreaSizeGroupBox";
+            this.CropAreaSizeGroupBox.Size = new System.Drawing.Size(160, 48);
+            this.CropAreaSizeGroupBox.TabIndex = 2;
+            this.CropAreaSizeGroupBox.TabStop = false;
+            this.CropAreaSizeGroupBox.Text = "Crop Area Size";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Location = new System.Drawing.Point(6, 20);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 1;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // maxSizeButton
+            // 
+            this.maxSizeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.maxSizeButton.Location = new System.Drawing.Point(112, 20);
+            this.maxSizeButton.Name = "maxSizeButton";
+            this.maxSizeButton.Size = new System.Drawing.Size(37, 20);
+            this.maxSizeButton.TabIndex = 0;
+            this.maxSizeButton.Text = "Max";
+            this.maxSizeButton.UseVisualStyleBackColor = true;
+            this.maxSizeButton.Click += new System.EventHandler(this.maxSizeButton_Click);
+            // 
             // cancelButton
             // 
             this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -96,38 +129,6 @@
             this.cropButton.Text = "Crop";
             this.cropButton.UseVisualStyleBackColor = true;
             this.cropButton.Click += new System.EventHandler(this.cropButton_Click);
-            // 
-            // CropAreaSizeGroupBox
-            // 
-            this.CropAreaSizeGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.CropAreaSizeGroupBox.Controls.Add(this.textBox1);
-            this.CropAreaSizeGroupBox.Controls.Add(this.maxSizeButton);
-            this.CropAreaSizeGroupBox.Location = new System.Drawing.Point(504, 3);
-            this.CropAreaSizeGroupBox.Name = "CropAreaSizeGroupBox";
-            this.CropAreaSizeGroupBox.Size = new System.Drawing.Size(160, 48);
-            this.CropAreaSizeGroupBox.TabIndex = 2;
-            this.CropAreaSizeGroupBox.TabStop = false;
-            this.CropAreaSizeGroupBox.Text = "Crop Area Size";
-            // 
-            // maxSizeButton
-            // 
-            this.maxSizeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.maxSizeButton.Location = new System.Drawing.Point(112, 20);
-            this.maxSizeButton.Name = "maxSizeButton";
-            this.maxSizeButton.Size = new System.Drawing.Size(37, 20);
-            this.maxSizeButton.TabIndex = 0;
-            this.maxSizeButton.Text = "Max";
-            this.maxSizeButton.UseVisualStyleBackColor = true;
-            this.maxSizeButton.Click += new System.EventHandler(this.maxSizeButton_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(6, 20);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // CropForm
             // 

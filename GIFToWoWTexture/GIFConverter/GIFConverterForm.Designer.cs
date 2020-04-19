@@ -31,18 +31,23 @@
             this.LoadGIFButton = new System.Windows.Forms.Button();
             this.GIFPictureBox = new System.Windows.Forms.PictureBox();
             this.PicturePreviewsSplitContainer = new System.Windows.Forms.SplitContainer();
-            this.ConvertOptionsGroupBox = new System.Windows.Forms.GroupBox();
-            this.GIFPropertyTreeView = new System.Windows.Forms.TreeView();
-            this.ToWoWTextureButton = new System.Windows.Forms.Button();
             this.WoWTexturePictureBox = new System.Windows.Forms.PictureBox();
+            this.ConvertOptionsGroupBox = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.ToWoWTextureButton = new System.Windows.Forms.Button();
+            this.GIFPropertyTreeView = new System.Windows.Forms.TreeView();
+            this.removeFramesFromStartButton = new System.Windows.Forms.Button();
+            this.trimEndButton = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.currentFrameLabel = new System.Windows.Forms.Label();
+            this.saveTextureButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.GIFPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicturePreviewsSplitContainer)).BeginInit();
             this.PicturePreviewsSplitContainer.Panel1.SuspendLayout();
             this.PicturePreviewsSplitContainer.Panel2.SuspendLayout();
             this.PicturePreviewsSplitContainer.SuspendLayout();
-            this.ConvertOptionsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WoWTexturePictureBox)).BeginInit();
+            this.ConvertOptionsGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // LoadGIFButton
@@ -57,6 +62,7 @@
             // 
             // GIFPictureBox
             // 
+            this.GIFPictureBox.BackColor = System.Drawing.Color.Transparent;
             this.GIFPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GIFPictureBox.Location = new System.Drawing.Point(0, 0);
             this.GIFPictureBox.Name = "GIFPictureBox";
@@ -83,16 +89,50 @@
             this.PicturePreviewsSplitContainer.SplitterDistance = 388;
             this.PicturePreviewsSplitContainer.TabIndex = 2;
             // 
+            // WoWTexturePictureBox
+            // 
+            this.WoWTexturePictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.WoWTexturePictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.WoWTexturePictureBox.Location = new System.Drawing.Point(0, 0);
+            this.WoWTexturePictureBox.Name = "WoWTexturePictureBox";
+            this.WoWTexturePictureBox.Size = new System.Drawing.Size(408, 262);
+            this.WoWTexturePictureBox.TabIndex = 0;
+            this.WoWTexturePictureBox.TabStop = false;
+            // 
             // ConvertOptionsGroupBox
             // 
+            this.ConvertOptionsGroupBox.Controls.Add(this.saveTextureButton);
+            this.ConvertOptionsGroupBox.Controls.Add(this.button3);
+            this.ConvertOptionsGroupBox.Controls.Add(this.trimEndButton);
+            this.ConvertOptionsGroupBox.Controls.Add(this.removeFramesFromStartButton);
             this.ConvertOptionsGroupBox.Controls.Add(this.button1);
             this.ConvertOptionsGroupBox.Controls.Add(this.ToWoWTextureButton);
             this.ConvertOptionsGroupBox.Location = new System.Drawing.Point(256, 12);
             this.ConvertOptionsGroupBox.Name = "ConvertOptionsGroupBox";
-            this.ConvertOptionsGroupBox.Size = new System.Drawing.Size(184, 144);
+            this.ConvertOptionsGroupBox.Size = new System.Drawing.Size(170, 144);
             this.ConvertOptionsGroupBox.TabIndex = 4;
             this.ConvertOptionsGroupBox.TabStop = false;
             this.ConvertOptionsGroupBox.Text = "Convert Options";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(87, 48);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Crop";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // ToWoWTextureButton
+            // 
+            this.ToWoWTextureButton.Location = new System.Drawing.Point(6, 115);
+            this.ToWoWTextureButton.Name = "ToWoWTextureButton";
+            this.ToWoWTextureButton.Size = new System.Drawing.Size(75, 23);
+            this.ToWoWTextureButton.TabIndex = 0;
+            this.ToWoWTextureButton.Text = "To Texture";
+            this.ToWoWTextureButton.UseVisualStyleBackColor = true;
+            this.ToWoWTextureButton.Click += new System.EventHandler(this.ToWoWTextureButton_Click);
             // 
             // GIFPropertyTreeView
             // 
@@ -101,40 +141,61 @@
             this.GIFPropertyTreeView.Size = new System.Drawing.Size(157, 144);
             this.GIFPropertyTreeView.TabIndex = 5;
             // 
-            // ToWoWTextureButton
+            // removeFramesFromStartButton
             // 
-            this.ToWoWTextureButton.Location = new System.Drawing.Point(103, 115);
-            this.ToWoWTextureButton.Name = "ToWoWTextureButton";
-            this.ToWoWTextureButton.Size = new System.Drawing.Size(75, 23);
-            this.ToWoWTextureButton.TabIndex = 0;
-            this.ToWoWTextureButton.Text = "To Texture";
-            this.ToWoWTextureButton.UseVisualStyleBackColor = true;
-            this.ToWoWTextureButton.Click += new System.EventHandler(this.ToWoWTextureButton_Click);
+            this.removeFramesFromStartButton.Location = new System.Drawing.Point(6, 19);
+            this.removeFramesFromStartButton.Name = "removeFramesFromStartButton";
+            this.removeFramesFromStartButton.Size = new System.Drawing.Size(75, 23);
+            this.removeFramesFromStartButton.TabIndex = 2;
+            this.removeFramesFromStartButton.Text = "Trim Start";
+            this.removeFramesFromStartButton.UseVisualStyleBackColor = true;
+            this.removeFramesFromStartButton.Click += new System.EventHandler(this.removeFramesFromStartButton_Click);
             // 
-            // WoWTexturePictureBox
+            // trimEndButton
             // 
-            this.WoWTexturePictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.WoWTexturePictureBox.Location = new System.Drawing.Point(0, 0);
-            this.WoWTexturePictureBox.Name = "WoWTexturePictureBox";
-            this.WoWTexturePictureBox.Size = new System.Drawing.Size(408, 262);
-            this.WoWTexturePictureBox.TabIndex = 0;
-            this.WoWTexturePictureBox.TabStop = false;
+            this.trimEndButton.Location = new System.Drawing.Point(87, 19);
+            this.trimEndButton.Name = "trimEndButton";
+            this.trimEndButton.Size = new System.Drawing.Size(75, 23);
+            this.trimEndButton.TabIndex = 3;
+            this.trimEndButton.Text = "Trim End";
+            this.trimEndButton.UseVisualStyleBackColor = true;
+            this.trimEndButton.Click += new System.EventHandler(this.trimEndButton_Click);
             // 
-            // button1
+            // button3
             // 
-            this.button1.Location = new System.Drawing.Point(6, 115);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Crop";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button3.Location = new System.Drawing.Point(6, 48);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 35);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "Remove Frame";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // currentFrameLabel
+            // 
+            this.currentFrameLabel.AutoSize = true;
+            this.currentFrameLabel.Location = new System.Drawing.Point(9, 154);
+            this.currentFrameLabel.Name = "currentFrameLabel";
+            this.currentFrameLabel.Size = new System.Drawing.Size(76, 13);
+            this.currentFrameLabel.TabIndex = 6;
+            this.currentFrameLabel.Text = "Current Frame:";
+            // 
+            // saveTextureButton
+            // 
+            this.saveTextureButton.Location = new System.Drawing.Point(87, 115);
+            this.saveTextureButton.Name = "saveTextureButton";
+            this.saveTextureButton.Size = new System.Drawing.Size(75, 23);
+            this.saveTextureButton.TabIndex = 5;
+            this.saveTextureButton.Text = "Save";
+            this.saveTextureButton.UseVisualStyleBackColor = true;
+            this.saveTextureButton.Click += new System.EventHandler(this.saveTextureButton_Click);
             // 
             // GIFConverterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.currentFrameLabel);
             this.Controls.Add(this.GIFPropertyTreeView);
             this.Controls.Add(this.ConvertOptionsGroupBox);
             this.Controls.Add(this.PicturePreviewsSplitContainer);
@@ -146,9 +207,10 @@
             this.PicturePreviewsSplitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PicturePreviewsSplitContainer)).EndInit();
             this.PicturePreviewsSplitContainer.ResumeLayout(false);
-            this.ConvertOptionsGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.WoWTexturePictureBox)).EndInit();
+            this.ConvertOptionsGroupBox.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -163,6 +225,11 @@
         private System.Windows.Forms.Button ToWoWTextureButton;
         private System.Windows.Forms.PictureBox WoWTexturePictureBox;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button trimEndButton;
+        private System.Windows.Forms.Button removeFramesFromStartButton;
+        private System.Windows.Forms.Label currentFrameLabel;
+        private System.Windows.Forms.Button saveTextureButton;
     }
 }
 

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.Drawing.Drawing2D;
 using System.IO;
 
 namespace GIFConverter
@@ -23,13 +25,13 @@ namespace GIFConverter
 
         public static Image Crop(Image image, Rectangle cropArea)
         {
-            var currentTile = new Bitmap(cropArea.Width, cropArea.Height);
-
+            var currentTile = new Bitmap(cropArea.Width, cropArea.Height, PixelFormat.Format32bppArgb);
             currentTile.SetResolution(image.HorizontalResolution, image.VerticalResolution);
+            
 
             using (var currentTileGraphics = Graphics.FromImage(currentTile))
             {
-                currentTileGraphics.Clear(Color.Black);
+                currentTileGraphics.Clear(Color.Transparent);
                 currentTileGraphics.DrawImage(image, 0, 0, cropArea, GraphicsUnit.Pixel);
             }
 
@@ -44,8 +46,8 @@ namespace GIFConverter
 
             int wid = RowsAndColumns.columns * images.First().Width;
             int hgt = RowsAndColumns.rows * images.First().Height;
-            Bitmap bm = new Bitmap(wid, hgt);
-
+            Bitmap bm = new Bitmap(wid, hgt, PixelFormat.Format32bppArgb);
+            bm.MakeTransparent();
             // Place the images on it.
             using (Graphics gr = Graphics.FromImage(bm))
             {
@@ -88,6 +90,34 @@ namespace GIFConverter
             }
 
             return (rows, columns);
+        }
+
+        internal static Image Resize(Image image, Size size)
+        {
+            int width = size.Width;
+            int height = size.Height;
+
+            var destRect = new Rectangle(0, 0, width, height);
+            var destImage = new Bitmap(width, height);
+
+            destImage.SetResolution(image.HorizontalResolution, image.VerticalResolution);
+
+            using (var graphics = Graphics.FromImage(destImage))
+            {
+                graphics.CompositingMode = CompositingMode.SourceCopy;
+                graphics.CompositingQuality = CompositingQuality.HighQuality;
+                graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                graphics.SmoothingMode = SmoothingMode.HighQuality;
+                graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
+
+                using (var wrapMode = new ImageAttributes())
+                {
+                    wrapMode.SetWrapMode(WrapMode.TileFlipXY);
+                    graphics.DrawImage(image, destRect, 0, 0, image.Width, image.Height, GraphicsUnit.Pixel, wrapMode);
+                }
+            }
+
+            return destImage;
         }
     }
 }
