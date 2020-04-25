@@ -196,5 +196,37 @@ namespace GIFConverter
                 WoWTexturePictureBox.Image.Save(fileStream, System.Drawing.Imaging.ImageFormat.Png);
             }
         }
+
+        private void makeTransparentButton_Click(object sender, EventArgs e)
+        {
+            ColorDialog colorDialog = new ColorDialog();
+            colorDialog.AnyColor = true;
+            colorDialog.AllowFullOpen = true;
+            colorDialog.ShowDialog();
+
+            ColorDialog colorDialog2 = new ColorDialog();
+            colorDialog2.AnyColor = true;
+            colorDialog2.AllowFullOpen = true;
+            colorDialog2.ShowDialog();
+
+            CurrentEdit.MakeTransparent(colorDialog.Color, colorDialog2.Color);
+
+            UpdateCurrentEditViews(CurrentEdit);
+        }
+
+        private void GIFPictureBox_Click(object sender, EventArgs e)
+        {
+            using (Bitmap image = new Bitmap(GIFPictureBox.Image))
+            {
+                Point pixelLocation = GIFPictureBox.PointToClient(MousePosition);
+                Color color = image.GetPixel(pixelLocation.X, pixelLocation.Y);
+
+                Color colorLow = ImageTransforms.ModifyColor(color, -10);
+                Color colorHigh = ImageTransforms.ModifyColor(color, 10);
+
+                CurrentEdit.MakeTransparent(colorLow, colorHigh);
+            }
+            UpdateCurrentEditViews(CurrentEdit);
+        }
     }
 }

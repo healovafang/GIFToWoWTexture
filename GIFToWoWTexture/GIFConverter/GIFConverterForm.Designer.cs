@@ -33,14 +33,15 @@
             this.PicturePreviewsSplitContainer = new System.Windows.Forms.SplitContainer();
             this.WoWTexturePictureBox = new System.Windows.Forms.PictureBox();
             this.ConvertOptionsGroupBox = new System.Windows.Forms.GroupBox();
+            this.makeTransparentButton = new System.Windows.Forms.Button();
+            this.saveTextureButton = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.trimEndButton = new System.Windows.Forms.Button();
+            this.removeFramesFromStartButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.ToWoWTextureButton = new System.Windows.Forms.Button();
             this.GIFPropertyTreeView = new System.Windows.Forms.TreeView();
-            this.removeFramesFromStartButton = new System.Windows.Forms.Button();
-            this.trimEndButton = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.currentFrameLabel = new System.Windows.Forms.Label();
-            this.saveTextureButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.GIFPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicturePreviewsSplitContainer)).BeginInit();
             this.PicturePreviewsSplitContainer.Panel1.SuspendLayout();
@@ -69,6 +70,7 @@
             this.GIFPictureBox.Size = new System.Drawing.Size(388, 262);
             this.GIFPictureBox.TabIndex = 1;
             this.GIFPictureBox.TabStop = false;
+            this.GIFPictureBox.Click += new System.EventHandler(this.GIFPictureBox_Click);
             // 
             // PicturePreviewsSplitContainer
             // 
@@ -101,6 +103,7 @@
             // 
             // ConvertOptionsGroupBox
             // 
+            this.ConvertOptionsGroupBox.Controls.Add(this.makeTransparentButton);
             this.ConvertOptionsGroupBox.Controls.Add(this.saveTextureButton);
             this.ConvertOptionsGroupBox.Controls.Add(this.button3);
             this.ConvertOptionsGroupBox.Controls.Add(this.trimEndButton);
@@ -113,6 +116,56 @@
             this.ConvertOptionsGroupBox.TabIndex = 4;
             this.ConvertOptionsGroupBox.TabStop = false;
             this.ConvertOptionsGroupBox.Text = "Convert Options";
+            // 
+            // makeTransparentButton
+            // 
+            this.makeTransparentButton.Location = new System.Drawing.Point(6, 86);
+            this.makeTransparentButton.Name = "makeTransparentButton";
+            this.makeTransparentButton.Size = new System.Drawing.Size(156, 23);
+            this.makeTransparentButton.TabIndex = 6;
+            this.makeTransparentButton.Text = "Transparent Range";
+            this.makeTransparentButton.UseVisualStyleBackColor = true;
+            this.makeTransparentButton.Click += new System.EventHandler(this.makeTransparentButton_Click);
+            // 
+            // saveTextureButton
+            // 
+            this.saveTextureButton.Location = new System.Drawing.Point(87, 115);
+            this.saveTextureButton.Name = "saveTextureButton";
+            this.saveTextureButton.Size = new System.Drawing.Size(75, 23);
+            this.saveTextureButton.TabIndex = 5;
+            this.saveTextureButton.Text = "Save";
+            this.saveTextureButton.UseVisualStyleBackColor = true;
+            this.saveTextureButton.Click += new System.EventHandler(this.saveTextureButton_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(6, 48);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 35);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "Remove Frame";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // trimEndButton
+            // 
+            this.trimEndButton.Location = new System.Drawing.Point(87, 19);
+            this.trimEndButton.Name = "trimEndButton";
+            this.trimEndButton.Size = new System.Drawing.Size(75, 23);
+            this.trimEndButton.TabIndex = 3;
+            this.trimEndButton.Text = "Trim End";
+            this.trimEndButton.UseVisualStyleBackColor = true;
+            this.trimEndButton.Click += new System.EventHandler(this.trimEndButton_Click);
+            // 
+            // removeFramesFromStartButton
+            // 
+            this.removeFramesFromStartButton.Location = new System.Drawing.Point(6, 19);
+            this.removeFramesFromStartButton.Name = "removeFramesFromStartButton";
+            this.removeFramesFromStartButton.Size = new System.Drawing.Size(75, 23);
+            this.removeFramesFromStartButton.TabIndex = 2;
+            this.removeFramesFromStartButton.Text = "Trim Start";
+            this.removeFramesFromStartButton.UseVisualStyleBackColor = true;
+            this.removeFramesFromStartButton.Click += new System.EventHandler(this.removeFramesFromStartButton_Click);
             // 
             // button1
             // 
@@ -141,36 +194,6 @@
             this.GIFPropertyTreeView.Size = new System.Drawing.Size(157, 144);
             this.GIFPropertyTreeView.TabIndex = 5;
             // 
-            // removeFramesFromStartButton
-            // 
-            this.removeFramesFromStartButton.Location = new System.Drawing.Point(6, 19);
-            this.removeFramesFromStartButton.Name = "removeFramesFromStartButton";
-            this.removeFramesFromStartButton.Size = new System.Drawing.Size(75, 23);
-            this.removeFramesFromStartButton.TabIndex = 2;
-            this.removeFramesFromStartButton.Text = "Trim Start";
-            this.removeFramesFromStartButton.UseVisualStyleBackColor = true;
-            this.removeFramesFromStartButton.Click += new System.EventHandler(this.removeFramesFromStartButton_Click);
-            // 
-            // trimEndButton
-            // 
-            this.trimEndButton.Location = new System.Drawing.Point(87, 19);
-            this.trimEndButton.Name = "trimEndButton";
-            this.trimEndButton.Size = new System.Drawing.Size(75, 23);
-            this.trimEndButton.TabIndex = 3;
-            this.trimEndButton.Text = "Trim End";
-            this.trimEndButton.UseVisualStyleBackColor = true;
-            this.trimEndButton.Click += new System.EventHandler(this.trimEndButton_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(6, 48);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 35);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Remove Frame";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // currentFrameLabel
             // 
             this.currentFrameLabel.AutoSize = true;
@@ -179,16 +202,6 @@
             this.currentFrameLabel.Size = new System.Drawing.Size(76, 13);
             this.currentFrameLabel.TabIndex = 6;
             this.currentFrameLabel.Text = "Current Frame:";
-            // 
-            // saveTextureButton
-            // 
-            this.saveTextureButton.Location = new System.Drawing.Point(87, 115);
-            this.saveTextureButton.Name = "saveTextureButton";
-            this.saveTextureButton.Size = new System.Drawing.Size(75, 23);
-            this.saveTextureButton.TabIndex = 5;
-            this.saveTextureButton.Text = "Save";
-            this.saveTextureButton.UseVisualStyleBackColor = true;
-            this.saveTextureButton.Click += new System.EventHandler(this.saveTextureButton_Click);
             // 
             // GIFConverterForm
             // 
@@ -230,6 +243,7 @@
         private System.Windows.Forms.Button removeFramesFromStartButton;
         private System.Windows.Forms.Label currentFrameLabel;
         private System.Windows.Forms.Button saveTextureButton;
+        private System.Windows.Forms.Button makeTransparentButton;
     }
 }
 

@@ -12,6 +12,44 @@ namespace GIFConverter
 {
     public static class ImageTransforms
     {
+
+        public static Image MakeCopyWithColorRangeTransparent(Color color1, Color color2, Image image)
+        {
+            Bitmap copy = new Bitmap(image);
+
+            for (int x = 0; x < copy.Width; x++)
+            {
+                for (int y = 0; y < copy.Height; y++)
+                {
+                    Color clr = copy.GetPixel(x, y);
+                    if(ColorIsWithinRange(clr, color1, color2))
+                    {
+                        copy.SetPixel(x, y, Color.Transparent);
+                    }
+                }
+            }
+
+            return copy;
+        }
+
+        private static bool ColorIsWithinRange(Color color, Color colorRange1, Color colorRange2)
+        {
+            if(color.A >= colorRange1.A && color.A <= colorRange2.A)
+            {
+                if(color.R >= colorRange1.R && color.R <= colorRange2.R)
+                {
+                    if(color.G >= colorRange1.G && color.G <= colorRange2.G)
+                    {
+                        if(color.B >= colorRange1.B && color.B <= colorRange2.B)
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+
         public static Image ImagesToGIF(IEnumerable<Image> images)
         {
             MemoryStream memoryStream = new MemoryStream();
@@ -118,6 +156,39 @@ namespace GIFConverter
             }
 
             return destImage;
+        }
+
+        internal static Color ModifyColor(Color color, int mod)
+        {
+            int alpha, red, blue, green;
+
+            alpha = color.A + mod;
+            red = color.R + mod;
+            blue = color.B + mod;
+            green = color.G + mod;
+
+            alpha = ColorClamp(alpha);
+            red = ColorClamp(red);
+            blue = ColorClamp(blue);
+            green = ColorClamp(green);
+
+            return Color.FromArgb(alpha, red, green, blue);
+        }
+
+        private static int ColorClamp(int colorComponent)
+        {
+            if(colorComponent > 255)
+            {
+                return 255;
+            }
+            else if(colorComponent < 0)
+            {
+                return 0;
+            }
+            else
+            {
+                return colorComponent;
+            }
         }
     }
 }

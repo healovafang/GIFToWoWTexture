@@ -71,6 +71,19 @@ namespace GIFConverter
             }
         }
 
+        public void MakeTransparent(Color color1, Color color2)
+        {
+            List<Image> images = new List<Image>();
+
+            foreach(Image image in GIFFrames)
+            {
+                images.Add(ImageTransforms.MakeCopyWithColorRangeTransparent(color1, color2, image));
+            }
+
+            GIFFrames.ForEach(o => o.Dispose());
+            GIFFrames = images;
+        }
+
         #region IDisposable Support
         private bool disposedValue = false; // To detect redundant calls
 
